@@ -14,15 +14,19 @@ public class Menu {
 		menu.add(new MenuItem("2","Delete Person"));
 		menu.add(new MenuItem("3","Print Index"));
 		menu.add(new MenuItem("4","Print Specific List"));
-		menu.add(new MenuItem("5","Exit The Program"));
+		menu.add(new ExitProgramMenuItem());
 		
 ;
 		}
 	
 	public String options() {
+		return header()+menuOptionsAsString();
+	}
+	
+	private String header() {
 		return "WELCOME TO INDEX-PROJECT MENU\n"+
-				"***********************************\n"+ 
-		menuOptionsAsString();
+				"***********************************\n";
+		
 	}
 
 	private String menuOptionsAsString() {
