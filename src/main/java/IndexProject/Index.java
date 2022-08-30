@@ -80,11 +80,12 @@ public class Index {
 			System.out.println("*************************");
 			
 			for (int j=0;j<getPersonIndex().get(i).size();j++) {
-				System.out.print(getPersonIndex().get(i).get(j).getFullName()+" : "+getPersonIndex().get(i).get(j).getPhoneNumber());
+				System.out.println(getPersonIndex().get(i).get(j).getFullName()+" : "+getPersonIndex().get(i).get(j).getPhoneNumber());
 			}
 			System.out.println();
 		}
 	}
+	
 	
 	
 	
