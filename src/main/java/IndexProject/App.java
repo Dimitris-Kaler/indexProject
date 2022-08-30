@@ -1,6 +1,7 @@
 package IndexProject;
 import java.util.Scanner;
 import exceptions.InvalidMenuChoice;
+import menu.Menu;
 
 public class App {
 	
@@ -71,13 +72,8 @@ public class App {
 	}
 	
 	private static void printMenuOptions() {
-		System.out.println("** WELCOME TO INDEX-PROJECT MENU");
-		System.out.println("***********************************");
-		System.out.println("1:Insert Person");
-		System.out.println("2.Delete Person");
-		System.out.println("3.Print Index");
-		System.out.println("4.Print Specific List");
-		System.out.println("5.Exit Program");
+		System.out.println(new Menu().options());
+
 		
 	}
 	

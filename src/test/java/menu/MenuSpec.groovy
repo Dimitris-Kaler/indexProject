@@ -7,18 +7,18 @@ import spock.lang.Specification
 
 class MenuSpec extends Specification {
 
+
 def "menu options"(){
-	when:
+	given:
 	Menu menu=new Menu();
 	
-	then:
-	menu.options()=="** WELCOME TO INDEX-PROJECT MENU\n"+
-"***********************************\n"+
-				"1:Insert Person\n"+
-				"2.Delete Person\n"+
-                "3.Print Index\n"+	
-				"4.Print Specific List\n"+
-                "5.Exit Program"
-
+	expect: 
+	menu.options()=="""WELCOME TO INDEX-PROJECT MENU
+***********************************
+1.Insert Person
+2.Delete Person
+3.Print Index
+4.Print Specific List
+5.Exit The Program"""	
 }
 }
