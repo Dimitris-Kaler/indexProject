@@ -31,13 +31,7 @@ public class App {
 		try(Scanner scanner=new Scanner(System.in)){
 			boolean exit=false;
 			while(!exit) {
-				System.out.println("** WELCOME TO INDEX-PROJECT MENU");
-				System.out.println("***********************************");
-				System.out.println("1:Insert Person");
-				System.out.println("2.Delete Person");
-				System.out.println("3.Print Index");
-				System.out.println("4.Print Specific List");
-				System.out.println("5.Exit Program");
+				printMenuOptions();
 				
 				int choice =readInt(scanner,1,5);
 				
@@ -78,6 +72,17 @@ public class App {
 			}
 		}
 
+	}
+	
+	private static void printMenuOptions() {
+		System.out.println("** WELCOME TO INDEX-PROJECT MENU");
+		System.out.println("***********************************");
+		System.out.println("1:Insert Person");
+		System.out.println("2.Delete Person");
+		System.out.println("3.Print Index");
+		System.out.println("4.Print Specific List");
+		System.out.println("5.Exit Program");
+		
 	}
 	
 	
