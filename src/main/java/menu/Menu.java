@@ -3,6 +3,7 @@ package menu;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import exceptions.InvalidMenuItemCode;
 
 public class Menu {
 	private List<MenuItem>menu;
@@ -22,13 +23,13 @@ public class Menu {
 	public String options() {
 		return header()+menuOptionsAsString();
 	}
+	
 	public MenuItem findByCode(String code) {
-		for(MenuItem mi:menu) {
-			if(mi.getCode().equals(code)) {
+		for(MenuItem mi:menu) 
+			if(mi.getCode().equals(code)) 
 				return mi;
-			}
-		}
-		return null;
+			
+		throw new InvalidMenuItemCode();
 	}
 	
 	private String header() {
