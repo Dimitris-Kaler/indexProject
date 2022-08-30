@@ -5,8 +5,14 @@ import spock.lang.Specification
 
 class MenuItemSpec extends Specification {
 
-	def "it has code"(){
-		expect:
-		new MenuItem("1")
+	
+	def "initialze menuItem with code and desscription"(){
+		
+		when:
+		def mi=new MenuItem("1","description")
+		
+		then:
+		mi.code == "1"
+		mi.description == "description"
 	}
 }

@@ -1,9 +1,29 @@
 package menu;
 
 public class MenuItem {
-public MenuItem(String code){
+
+	private String code;
+	private String description;
+	
+	
+	public MenuItem(String code,String description) {
+		this.code=code;
+		this.description=description;
+	}
+
+
+	public String getCode() {
+		return code;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+	
+	
 	
 }
 
 
-}
+
