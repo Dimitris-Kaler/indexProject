@@ -21,4 +21,16 @@ def "menu options"(){
 4.Print Specific List
 5.Exit The Program"""	
 }
+
+def "find menu by code"(){
+	given:
+	Menu menu=new Menu()
+	
+	when:
+	MenuItem mi=menu.findByCode("1")
+	
+	then:
+	mi.code=="1"
+	mi.description=="Insert Person"
+}
 }

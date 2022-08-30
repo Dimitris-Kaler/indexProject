@@ -22,6 +22,14 @@ public class Menu {
 	public String options() {
 		return header()+menuOptionsAsString();
 	}
+	public MenuItem findByCode(String code) {
+		for(MenuItem mi:menu) {
+			if(mi.getCode().equals(code)) {
+				return mi;
+			}
+		}
+		return null;
+	}
 	
 	private String header() {
 		return "WELCOME TO INDEX-PROJECT MENU\n"+

@@ -1,5 +1,9 @@
 package menu;
 
+import java.util.Scanner;
+
+import IndexProject.Index;
+
 public class MenuItem {
 
 	private String code;
@@ -24,6 +28,12 @@ public class MenuItem {
 	@Override
 	public String toString() {
 		return String.format("%s.%s", code, description);
+	}
+
+
+	public void execute(Scanner scanner, Index index) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
