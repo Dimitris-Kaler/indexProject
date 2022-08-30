@@ -1,5 +1,6 @@
 package IndexProject;
 import java.util.Scanner;
+import exceptions.InvalidMenuChoice;
 
 public class App {
 	
@@ -38,7 +39,7 @@ public class App {
 				System.out.println("4.Print Specific List");
 				System.out.println("5.Exit Program");
 				
-				int choice =readInt(scanner,1,4);
+				int choice =readInt(scanner,1,5);
 				
 				
 				switch (choice) {
@@ -77,6 +78,20 @@ public class App {
 			}
 		}
 
+	}
+	public static void acceptChoice(String choice) {
+		validateInBounds(validateInteger(choice));
+	}
+	public static void validateInBounds(int value) {
+		if(value<1||value>5)
+			throw new InvalidMenuChoice();
+	}
+	private static int validateInteger(String choice) {
+		try {
+			return Integer.parseInt(choice);
+		}catch(NumberFormatException e) {
+			throw new InvalidMenuChoice();
+		}
 	}
 
 }
