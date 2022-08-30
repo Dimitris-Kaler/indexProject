@@ -1,16 +1,26 @@
 package IndexProject
 
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class IndexSpec extends Specification {
-
-	def "initialise index"(){
-		when:
-		Index index=new Index()
+	
+	@Unroll
+	def "initialize index"(){
+	when:
+	Index index=new Index()
+	
+	then:
+	index.getPersonIndex().get(i) == new LinkedList<Person>()
+	
+	where:
+	i<<(0..25)
 		
-		then:
-		index.personIndex==new ArrayList<LinkedList<Person>>(26)
-			
+		
+		
+		
+		
+		
 	}
 
 }
