@@ -27,10 +27,18 @@ def "find menu by code"(){
 	Menu menu=new Menu()
 	
 	when:
-	MenuItem mi=menu.findByCode("1")
+	MenuItem mi=menu.findByCode(code)
 	
 	then:
-	mi.code=="1"
-	mi.description=="Insert Person"
+	mi.code==code
+	mi.description==description
+	
+	where:
+	code|description
+	"1" |"Insert Person"
+	"2" |"Delete Person"
+	"3" |"Print Index"
+	"4" |"Print Specific List"
+	"5" |"Exit The Program"
 }
 }
