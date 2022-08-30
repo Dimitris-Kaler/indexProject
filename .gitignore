@@ -6,7 +6,7 @@ build
 
 # Eclipse generated files
 
-IndexProject/.classpath
-IndexProject/.project
-IndexProject/.settings/
-IndexProject/bin/
+.classpath
+.project
+.settings/
+	bin/
