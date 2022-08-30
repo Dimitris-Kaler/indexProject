@@ -9,8 +9,7 @@ class IndexSpec extends Specification {
 		Index index=new Index()
 		
 		then:
-		def e=index.personIndex
-		e==new ArrayList<LinkedList<Person>>()
+		index.personIndex==new ArrayList<LinkedList<Person>>(26)
 			
 	}
 

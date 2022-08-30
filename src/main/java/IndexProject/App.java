@@ -32,43 +32,39 @@ public class App {
 			boolean exit=false;
 			while(!exit) {
 				printMenuOptions();
+				String choice = parseInputFromCommandLine(scanner);
 				
-				int choice =readInt(scanner,1,5);
-				
-				
-				switch (choice) {
-				case 1:
+				if("1".contentEquals(choice)) {
 					scanner.nextLine();
 					System.out.print("Full-Name: ");
 					String name=scanner.nextLine();
 					System.out.print("Mobile-Number: ");
 					String phone=scanner.nextLine();
-					
 					Person person=new Person(name,phone);
 					index.add(person);
-					break;
-				case 2:
+				}
+				if("2".equals(choice)) {
 					scanner.nextLine();
 					System.out.println("Delete String");
 					System.out.print("Give the FullName: ");
 					index.delete(scanner.nextLine());
-					break;
 					
-				case 3:
+				}
+				if("3".equals(choice)) {
 					index.print();
-					break;
-				case 4:
+					
+				}
+				if("4".equals(choice)) {
 					System.out.println("Type the char to see the specific list");
 					System.out.print("Type char: ");
 					index.printSpecificList(scanner.next().charAt(0));
-					break;
-				case 5:
-					System.out.println("Bye Bye see you soon!!");
-					exit=true;
-					break;
-					
 					
 				}
+				if("5".contentEquals(choice)) {
+					System.out.println("Bye Bye see you soon!!");
+					exit=true;
+				}
+
 			}
 		}
 
@@ -85,6 +81,36 @@ public class App {
 		
 	}
 	
+	private static String parseInputFromCommandLine(Scanner sc) {
+		prompt();
+		while(sc.hasNext()) {
+			try {
+				return validateChoice(sc);
+				
+			}catch(Exception e) {
+				handleException(e);
+			}
+			finally {
+				prompt();
+			}
+		}
+		return null;
+		
+	}
+	
+	private static void handleException(Exception e) {
+		System.err.println(e.getMessage());
+	}
+	
+	private static String validateChoice(Scanner sc) {
+		String choice = sc.next();
+		acceptChoice(choice);
+		return choice;
+	}
+
+	private static void prompt() {
+		System.out.println("Enter choice: ");
+	}
 	
 	public static void acceptChoice(String choice) {
 		validateInBounds(validateInteger(choice));
