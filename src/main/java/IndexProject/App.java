@@ -79,18 +79,22 @@ public class App {
 		}
 
 	}
+	
+	
 	public static void acceptChoice(String choice) {
 		validateInBounds(validateInteger(choice));
 	}
-	public static void validateInBounds(int value) {
-		if(value<1||value>5)
-			throw new InvalidMenuChoice();
+
+	private static void validateInBounds(int value) {
+		if (value < 1 || value > 5)
+			throw new InvalidMenuChoice(String.valueOf(value));
 	}
+
 	private static int validateInteger(String choice) {
 		try {
 			return Integer.parseInt(choice);
-		}catch(NumberFormatException e) {
-			throw new InvalidMenuChoice();
+		} catch (NumberFormatException e) {
+			throw new InvalidMenuChoice(choice);
 		}
 	}
 
