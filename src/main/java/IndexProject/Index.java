@@ -23,6 +23,15 @@ public class Index {
 		return personIndex;
 	}
 	
+	public LinkedList<Person>FindSpecificLinkedList(String str) {
+		final String alphabet="abcdefghijklmnopqrstuvwxyz";
+		String checkedFullName=str.trim();
+		String firstLetter=String.valueOf(checkedFullName.charAt(0)).toLowerCase();
+		int numberOfLinkedList=alphabet.indexOf(firstLetter);
+		return getPersonIndex().get(numberOfLinkedList);	
+		
+	}
+	
 	
 	
 	

@@ -1,8 +1,10 @@
 package menu;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 import IndexProject.Index;
+import IndexProject.Person;
 
 public class DeletePersonMenuItem extends MenuItem {
 	public DeletePersonMenuItem() {
@@ -11,21 +13,30 @@ public class DeletePersonMenuItem extends MenuItem {
 	
 	@Override
 	public void execute(Index index,Scanner scanner) {
+		String name=findPersonFromName(scanner);
+		LinkedList<Person> list=index.FindSpecificLinkedList(name);
+		boolean nameExist=list.removeIf(person->person.getFullName().equals(name));
+		printTheCorrectMessage(nameExist);
+	}
+	
+	
+	private String findPersonFromName(Scanner scanner) {
 		scanner.nextLine();
 		System.out.println("Delete String");
 		System.out.print("Give the FullName: ");
 		String name=scanner.nextLine();
+		return name;
+		
+	}
 	
-		String alphabet="abcdefghijklmnopqrstuvwxyz";
-		String checkedFullName=name.trim();
-		String firstLetter=String.valueOf(checkedFullName.charAt(0)).toLowerCase();
-		int numberOfLinkedList=alphabet.indexOf(firstLetter);
-		boolean nameExist=index.getPersonIndex().get(numberOfLinkedList).removeIf(person->person.getFullName().equals(name));
+	private void printTheCorrectMessage(Boolean nameExist) {
 		if(nameExist==false) {
 			System.out.println("This String doesnt exist");
 		}else {
-			System.out.println("String deleted!!");
+			System.out.println("Person deleted from the Index!");
 		}
+		
 	}
+	
 
 }

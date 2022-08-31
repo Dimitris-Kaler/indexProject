@@ -1,5 +1,6 @@
 package menu;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 import IndexProject.Index;
@@ -13,6 +14,14 @@ public class InsertPersonMenuItem extends MenuItem {
 	
 	@Override
 	public void execute(Index index,Scanner scanner) {
+		Person person=createPersonToAdd(scanner);
+		LinkedList<Person> list=index.FindSpecificLinkedList(person.getFullName());
+		list.add(person);
+		System.out.println("The Person has succesfully added!!");
+		
+	}
+	
+	private Person createPersonToAdd(Scanner scanner) {
 		scanner.nextLine();
 		System.out.print("Full-Name: ");
 		String name=scanner.nextLine();
@@ -21,12 +30,8 @@ public class InsertPersonMenuItem extends MenuItem {
 		Person person=new Person(name,phone);
 		String fullName=person.getFullName();
 		
-		String alphabet="abcdefghijklmnopqrstuvwxyz";
-		String checkedFullName=fullName.trim();
-		String firstLetter=String.valueOf(checkedFullName.charAt(0)).toLowerCase();
-		int numberOfLinkedList=alphabet.indexOf(firstLetter);
-		index.getPersonIndex().get(numberOfLinkedList).add(person);
-		System.out.println("The Person has succesfully added!!");
+		return person;
+		
 		
 	}
 
