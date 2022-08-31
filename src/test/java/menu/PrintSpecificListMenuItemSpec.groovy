@@ -20,25 +20,20 @@ class PrintSpecificListMenuItemSpec extends Specification {
 
 	
 def "when execute method then FindSpecificLinkedList is called"(){
-	
+	//TODO THIS TESTING
 	given:
 	PrintSpecificListMenuItem mi=new PrintSpecificListMenuItem()
 	
-	Index index=new Index()
+	Index indexMock=Mock()
 	
 	
-	
-	and:
-	def stub=index.FindSpecificLinkedList()
-	
-	stub==Stub()
-	stub>>{"a"}
+
 	
 	when:
-	mi.execute(indexStub,new Scanner(System.in))
+	mi.execute(indexMock,new Scanner(System.in))
 	
 	then:
-	System.out.println("INDEX: A")
+	1*indexMock.FindSpecificLinkedList()
 	
 	
 	
