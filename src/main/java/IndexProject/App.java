@@ -2,27 +2,10 @@ package IndexProject;
 import java.util.Scanner;
 import exceptions.InvalidMenuChoice;
 import menu.Menu;
+import menu.MenuItem;
 
 public class App {
-	
-	public static int readInt(Scanner sc,int lower,int upper) {
-		int choice;
-		while(true) {
-			System.out.println("Your choice: ");
-			if(sc.hasNextInt()) {
-				choice=sc.nextInt();
-				if(choice<lower||choice>upper) {
-					System.out.println("Error: Between "+lower+" and "+upper);
-				}
-				else 
-					return choice;
-				
-			}else {
-				sc.next();
-				System.out.println("Invalid input!!");
-			}
-		}
-	}
+	private static Menu menu=new Menu();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -34,6 +17,8 @@ public class App {
 			while(!exit) {
 				printMenuOptions();
 				String choice = parseInputFromCommandLine(scanner);
+				MenuItem menuItemSelected=menu.findByCode(choice);
+				menuItemSelected.execute();
 				
 				if("1".equals(choice)) {
 					index.add(scanner);
@@ -50,10 +35,7 @@ public class App {
 					index.printSpecificList(scanner);
 					
 				}
-				if("5".equals(choice)) {
-					System.out.println("Bye Bye see you soon!!");
-					exit=true;
-				}
+
 
 			}
 		}

@@ -31,7 +31,7 @@ public class MenuItem {
 	}
 
 
-	public void execute(Scanner scanner, Index index) {
+	public void execute(Index index) {
 		// TODO Auto-generated method stub
 		
 	}
