@@ -35,20 +35,11 @@ public class App {
 				printMenuOptions();
 				String choice = parseInputFromCommandLine(scanner);
 				
-				if("1".contentEquals(choice)) {
-					scanner.nextLine();
-					System.out.print("Full-Name: ");
-					String name=scanner.nextLine();
-					System.out.print("Mobile-Number: ");
-					String phone=scanner.nextLine();
-					Person person=new Person(name,phone);
-					index.add(person);
+				if("1".equals(choice)) {
+					index.add(scanner);
 				}
 				if("2".equals(choice)) {
-					scanner.nextLine();
-					System.out.println("Delete String");
-					System.out.print("Give the FullName: ");
-					index.delete(scanner.nextLine());
+					index.delete(scanner);
 					
 				}
 				if("3".equals(choice)) {
@@ -56,12 +47,10 @@ public class App {
 					
 				}
 				if("4".equals(choice)) {
-					System.out.println("Type the char to see the specific list");
-					System.out.print("Type char: ");
-					index.printSpecificList(scanner.next().charAt(0));
+					index.printSpecificList(scanner);
 					
 				}
-				if("5".contentEquals(choice)) {
+				if("5".equals(choice)) {
 					System.out.println("Bye Bye see you soon!!");
 					exit=true;
 				}

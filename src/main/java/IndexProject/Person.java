@@ -35,17 +35,12 @@ public class Person {
 		return fullName;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
 
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+
 	
 	private void validatePerson() {
 		validateFullName();

@@ -35,6 +35,12 @@ public class MenuItem {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	public void execute() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

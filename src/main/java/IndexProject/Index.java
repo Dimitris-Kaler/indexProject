@@ -3,6 +3,7 @@ package IndexProject;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Index {
 	
@@ -21,23 +22,33 @@ public class Index {
 	public List<LinkedList<Person>> getPersonIndex() {
 		return personIndex;
 	}
+	
+	
 
 
-	public void add(Person person) {
+
+	public void add(Scanner scanner) {
+		scanner.nextLine();
+		System.out.print("Full-Name: ");
+		String name=scanner.nextLine();
+		System.out.print("Mobile-Number: ");
+		String phone=scanner.nextLine();
+		Person person=new Person(name,phone);
 		String fullName=person.getFullName();
 		
 		String alphabet="abcdefghijklmnopqrstuvwxyz";
 		String checkedFullName=fullName.trim();
 		String firstLetter=String.valueOf(checkedFullName.charAt(0)).toLowerCase();
-		
-		
-		
 		int numberOfLinkedList=alphabet.indexOf(firstLetter);
 		getPersonIndex().get(numberOfLinkedList).add(person);
 		System.out.println("The Person has succesfully added!!");
 	}
 	
-	public void delete(String name) {
+	public void delete(Scanner scanner) {
+		scanner.nextLine();
+		System.out.println("Delete String");
+		System.out.print("Give the FullName: ");
+		String name=scanner.nextLine();
 	
 		String alphabet="abcdefghijklmnopqrstuvwxyz";
 		String checkedFullName=name.trim();
@@ -55,12 +66,17 @@ public class Index {
 		
 	}
 	
-	public void printSpecificList(char letter) {
+	
+	
+	public void printSpecificList(Scanner scanner) {
+		
+		
+		System.out.println("Type the char to see the specific list");
+		System.out.print("Type char: ");
+		char letter=scanner.next().charAt(0);
+//		
 		String alphabet="abcdefghijklmnopqrstuvwxyz";
 		char character=Character.toUpperCase(letter);
-		
-	
-		
 		int numberOfLinkedList=alphabet.indexOf(letter);
 		System.out.println("Full Name : Mobile Number");
 		System.out.println("*************************");
@@ -71,6 +87,7 @@ public class Index {
 		System.out.println();
 		
 	}
+	
 	
 	public void print() {
 		String alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
