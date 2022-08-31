@@ -9,10 +9,10 @@ class MenuItemSpec extends Specification {
 	def "initialze menuItem with code and desscription"(){
 		
 		when:
-		def mi=new MenuItem("1","description")
+		def mi=new InsertPersonMenuItem()
 		
 		then:
 		mi.code == "1"
-		mi.description == "description"
+		mi.description == "Insert Person"
 	}
 }

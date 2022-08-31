@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import IndexProject.Index;
 
-public class MenuItem {
+public abstract class MenuItem implements MenuItemCommand {
 
 	private String code;
 	private String description;
