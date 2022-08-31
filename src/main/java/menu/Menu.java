@@ -11,10 +11,10 @@ public class Menu {
 	
 	public Menu() {
 		menu=new ArrayList<MenuItem>();
-		menu.add(new MenuItem("1","Insert Person"));
-		menu.add(new MenuItem("2","Delete Person"));
-		menu.add(new MenuItem("3","Print Index"));
-		menu.add(new MenuItem("4","Print Specific List"));
+		menu.add(new InsertPersonMenuItem());
+		menu.add(new DeletePersonMenuItem());
+		menu.add(new PrintIndexMenuItem());
+		menu.add(new PrintSpecificListMenuItem());
 		menu.add(new ExitProgramMenuItem());
 		
 ;

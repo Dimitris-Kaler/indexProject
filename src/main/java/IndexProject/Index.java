@@ -27,22 +27,22 @@ public class Index {
 
 
 
-	public void add(Scanner scanner) {
-		scanner.nextLine();
-		System.out.print("Full-Name: ");
-		String name=scanner.nextLine();
-		System.out.print("Mobile-Number: ");
-		String phone=scanner.nextLine();
-		Person person=new Person(name,phone);
-		String fullName=person.getFullName();
-		
-		String alphabet="abcdefghijklmnopqrstuvwxyz";
-		String checkedFullName=fullName.trim();
-		String firstLetter=String.valueOf(checkedFullName.charAt(0)).toLowerCase();
-		int numberOfLinkedList=alphabet.indexOf(firstLetter);
-		getPersonIndex().get(numberOfLinkedList).add(person);
-		System.out.println("The Person has succesfully added!!");
-	}
+//	public void add(Scanner scanner) {
+//		scanner.nextLine();
+//		System.out.print("Full-Name: ");
+//		String name=scanner.nextLine();
+//		System.out.print("Mobile-Number: ");
+//		String phone=scanner.nextLine();
+//		Person person=new Person(name,phone);
+//		String fullName=person.getFullName();
+//		
+//		String alphabet="abcdefghijklmnopqrstuvwxyz";
+//		String checkedFullName=fullName.trim();
+//		String firstLetter=String.valueOf(checkedFullName.charAt(0)).toLowerCase();
+//		int numberOfLinkedList=alphabet.indexOf(firstLetter);
+//		getPersonIndex().get(numberOfLinkedList).add(person);
+//		System.out.println("The Person has succesfully added!!");
+//	}
 	
 	public void delete(Scanner scanner) {
 		scanner.nextLine();
@@ -68,41 +68,41 @@ public class Index {
 	
 	
 	
-	public void printSpecificList(Scanner scanner) {
-		
-		
-		System.out.println("Type the char to see the specific list");
-		System.out.print("Type char: ");
-		char letter=scanner.next().charAt(0);
+//	public void printSpecificList(Scanner scanner) {
 //		
-		String alphabet="abcdefghijklmnopqrstuvwxyz";
-		char character=Character.toUpperCase(letter);
-		int numberOfLinkedList=alphabet.indexOf(letter);
-		System.out.println("Full Name : Mobile Number");
-		System.out.println("*************************");
-		for(Person str:getPersonIndex().get(numberOfLinkedList)) {
-			System.out.println(str.getFullName()+" "+str.getPhoneNumber());
-			
-		}
-		System.out.println();
-		
-	}
+//		
+//		System.out.println("Type the char to see the specific list");
+//		System.out.print("Type char: ");
+//		char letter=scanner.next().charAt(0);
+////		
+//		String alphabet="abcdefghijklmnopqrstuvwxyz";
+//		char character=Character.toUpperCase(letter);
+//		int numberOfLinkedList=alphabet.indexOf(letter);
+//		System.out.println("Full Name : Mobile Number");
+//		System.out.println("*************************");
+//		for(Person str:getPersonIndex().get(numberOfLinkedList)) {
+//			System.out.println(str.getFullName()+" "+str.getPhoneNumber());
+//			
+//		}
+//		System.out.println();
+//		
+//	}
 	
 	
-	public void print() {
-		String alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		for(int i=0;i<getPersonIndex().size();i++) {
-			System.out.println("INDEX: "+alphabet.charAt(i)+" ");
-			System.out.println("Full Name : Mobile Number");
-			System.out.println("*************************");
-			
-			for (int j=0;j<getPersonIndex().get(i).size();j++) {
-				System.out.println(getPersonIndex().get(i).get(j).getFullName()+" : "+getPersonIndex().get(i).get(j).getPhoneNumber());
-			}
-			System.out.println();
-		}
-	}
-	
+//	public void print() {
+//		String alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//		for(int i=0;i<getPersonIndex().size();i++) {
+//			System.out.println("INDEX: "+alphabet.charAt(i)+" ");
+//			System.out.println("Full Name : Mobile Number");
+//			System.out.println("*************************");
+//			
+//			for (int j=0;j<getPersonIndex().get(i).size();j++) {
+//				System.out.println(getPersonIndex().get(i).get(j).getFullName()+" : "+getPersonIndex().get(i).get(j).getPhoneNumber());
+//			}
+//			System.out.println();
+//		}
+//	}
+//	
 	
 	
 	

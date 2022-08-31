@@ -18,24 +18,7 @@ public class App {
 				printMenuOptions();
 				String choice = parseInputFromCommandLine(scanner);
 				MenuItem menuItemSelected=menu.findByCode(choice);
-				menuItemSelected.execute();
-				
-				if("1".equals(choice)) {
-					index.add(scanner);
-				}
-				if("2".equals(choice)) {
-					index.delete(scanner);
-					
-				}
-				if("3".equals(choice)) {
-					index.print();
-					
-				}
-				if("4".equals(choice)) {
-					index.printSpecificList(scanner);
-					
-				}
-
+				menuItemSelected.execute(index,scanner);
 
 			}
 		}
