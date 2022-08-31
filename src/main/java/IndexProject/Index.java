@@ -23,6 +23,11 @@ public class Index {
 		return personIndex;
 	}
 	
+	public void setPersonIndex(List<LinkedList<Person>> personIndex) {
+		this.personIndex=personIndex;
+		
+	}
+	
 	public LinkedList<Person>FindSpecificLinkedList(String str) {
 		final String alphabet="abcdefghijklmnopqrstuvwxyz";
 		String checkedFullName=str.trim();

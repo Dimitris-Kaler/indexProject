@@ -28,14 +28,27 @@ public class PrintSpecificListMenuItem extends MenuItem {
 	}
 	
 	private void printList(String letter,LinkedList<Person>list) {
+		listHeader(letter);
+		listBody(list);	
+	}
+	
+	private void listHeader(String letter) {
 		System.out.println("INDEX: "+letter.toUpperCase());
 		System.out.println("Full Name : Mobile Number");
 		System.out.println("*************************");
+	}
+	
+	private void listBody(LinkedList<Person>list) {
+		if(list.isEmpty()) {
+			System.out.println("-");
+		}else {
 		for(Person str:list) {
+			
 			System.out.println(str.getFullName()+" "+str.getPhoneNumber());
 			
 		}
 		System.out.println();
+		}
 		
 	}
 

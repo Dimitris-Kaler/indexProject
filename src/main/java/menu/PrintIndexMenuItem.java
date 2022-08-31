@@ -12,7 +12,7 @@ public class PrintIndexMenuItem extends MenuItem {
 	
 	@Override
 	public void execute(Index index,Scanner scanner) {
-		String alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		final String alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		for(int i=0;i<index.getPersonIndex().size();i++) {
 			System.out.println("INDEX: "+alphabet.charAt(i)+" ");
 			System.out.println("Full Name : Mobile Number");
