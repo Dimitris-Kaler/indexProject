@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 import IndexProject.Index;
+import IndexProject.IndexList;
 import IndexProject.Person;
 
 public class InsertPersonMenuItem extends MenuItem {
@@ -15,8 +16,8 @@ public class InsertPersonMenuItem extends MenuItem {
 	@Override
 	public void execute(Index index,Scanner scanner) {
 		Person person=createPersonToAdd(scanner);
-		LinkedList<Person> list=index.FindSpecificLinkedList(person.getFullName());
-		list.add(person);
+		IndexList indexli=index.FindSpecificIndexList(person.getFullName());
+		indexli.getList().add(person);
 		System.out.println("The Person has succesfully added!!");
 		
 	}

@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 import IndexProject.Index;
+import IndexProject.IndexList;
 import IndexProject.Person;
 
 public class DeletePersonMenuItem extends MenuItem {
@@ -14,8 +15,8 @@ public class DeletePersonMenuItem extends MenuItem {
 	@Override
 	public void execute(Index index,Scanner scanner) {
 		String name=findPersonFromName(scanner);
-		LinkedList<Person> list=index.FindSpecificLinkedList(name);
-		boolean nameExist=list.removeIf(person->person.getFullName().equals(name));
+		IndexList indexli=index.FindSpecificIndexList(name);
+		boolean nameExist=indexli.getList().removeIf(person->person.getFullName().equals(name));
 		printTheCorrectMessage(nameExist);
 	}
 	

@@ -4,21 +4,37 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 class IndexSpec extends Specification {
-	
 	@Unroll
-	def "initialize index"(){
-	when:
-	Index index=new Index()
+	def "initialise index"(){
+		given:
+		Index index=new Index()
+
+		when:
+		index.getPersonIndex().get(integer)
+		
+		then:
+		new IndexList(index.alphabet.charAt(integer))
+		
+		where:
+	    integer<<(0..25)
+		
+
+	}
 	
-	then:
-	index.getPersonIndex().get(i) == new LinkedList<Person>()
 	
-	where:
-	i<<(0..25)
+	
+	def'find specific indexList'(){
+		given:
+		Index index=new Index()
+		IndexList mockList=Mock()
 		
 		
+		when:
+		mockList=index.FindSpecificIndexList('dimitris');
 		
 		
+		then:
+		mockList.getListLetter()=='D';
 		
 		
 	}

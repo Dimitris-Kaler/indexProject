@@ -10,16 +10,15 @@ public class PrintIndexMenuItem extends MenuItem {
 		super("3","Print Index");
 	}
 	
-	@Override
+    @Override
 	public void execute(Index index,Scanner scanner) {
-		final String alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		for(int i=0;i<index.getPersonIndex().size();i++) {
-			System.out.println("INDEX: "+alphabet.charAt(i)+" ");
+			System.out.println("INDEX: "+index.getPersonIndex().get(i).getListLetter()+" ");
 			System.out.println("Full Name : Mobile Number");
 			System.out.println("*************************");
-			
-			for (int j=0;j<index.getPersonIndex().get(i).size();j++) {
-				System.out.println(index.getPersonIndex().get(i).get(j).getFullName()+" : "+index.getPersonIndex().get(i).get(j).getPhoneNumber());
+			for(int j=0;j<index.getPersonIndex().get(i).getList().size();j++) {
+				
+				System.out.println(index.getPersonIndex().get(i).getList().get(j).getFullName()+" : "+index.getPersonIndex().get(i).getList().get(j).getPhoneNumber());
 			}
 			System.out.println();
 		}

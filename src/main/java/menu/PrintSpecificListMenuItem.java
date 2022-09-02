@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 import IndexProject.Index;
+import IndexProject.IndexList;
 import IndexProject.Person;
 
 public class PrintSpecificListMenuItem extends MenuItem {
@@ -15,8 +16,9 @@ public class PrintSpecificListMenuItem extends MenuItem {
 	@Override 
 	public void execute(Index index,Scanner scanner) {
 		String letter=FindLetterOfTheLinkedList(scanner);
-		LinkedList<Person> list=index.FindSpecificLinkedList(letter);
-		printList(letter,list);
+
+		IndexList indexlist=index.FindSpecificIndexList(letter);
+		printList(letter,indexlist.getList());
 	}
 	
 	
@@ -44,7 +46,7 @@ public class PrintSpecificListMenuItem extends MenuItem {
 		}else {
 		for(Person str:list) {
 			
-			System.out.println(str.getFullName()+" "+str.getPhoneNumber());
+			System.out.println(str.getFullName()+" : "+str.getPhoneNumber());
 			
 		}
 		System.out.println();
