@@ -62,7 +62,7 @@ public class Person {
 	};
 	
 	private void validateFullNameEmptyValue() {
-		if(this.fullName=="") {
+		if("".equals(fullName)) {
 			throw new EmptyNameNotAllowedException();
 		}
 	}
