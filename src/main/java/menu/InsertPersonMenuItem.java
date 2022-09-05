@@ -37,18 +37,6 @@ public class InsertPersonMenuItem extends MenuItem {
 		
 	}
 	
-//	private Person createPersonToAdd(Scanner scanner,PrintStream out) {
-////		scanner.nextLine();
-//		out.print("Full-Name: ");
-//		String name=scanner.nextLine();
-//		out.print("Mobile-Number: ");
-//		String phone=scanner.nextLine();
-//		Person person=new Person(name,phone);
-//
-//		
-//		return person;
-//		
-//		
-//	}
+
 
 }

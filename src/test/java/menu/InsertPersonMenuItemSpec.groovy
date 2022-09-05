@@ -3,6 +3,7 @@ package menu
 import IndexProject.Index
 import IndexProject.IndexList
 import IndexProject.Person
+import IndexProject.PersonCLIParser
 import spock.lang.Specification
 
 class InsertPersonMenuItemSpec extends Specification {
@@ -18,45 +19,39 @@ class InsertPersonMenuItemSpec extends Specification {
 		mi.description=="Insert Person"
 	}
 	
-//	def "create a person to put it on the list"(){
-//		given:
-//
-//		String name="Dimitris"
-//		String phone="6795679456"
-//
-//		
-//		
-//		and:"A scanner that simulates the input"
-//		Scanner scanner=new Scanner(simulateUserInput(name,phone))
-//		
-//		and:"and print stream for capturing program output"
-//		OutputStream captureOutput=new ByteArrayOutputStream()
-//		PrintStream out=new PrintStream(captureOutput)
-//		
-//		
-//		when:
-//		Person person=mi.createPersonToAdd(scanner,out)
-//		
-//		
-//		then:
-//		person.getFullName()=="Dimitris"
-//		person.getPhoneNumber()=="6795679456"
-//		
-//	}
-//	private def simulateUserInput(String name, String phone) {
-//		new ByteArrayInputStream((name + System.lineSeparator() + phone).getBytes());
-//	}
+	def execute() {
+		given:"index"
+		Index index=Mock()
+		IndexList inList=new IndexList('d'.charAt(0))
+		
+		and: "a parser that returns an Person successfully"
+		PersonCLIParser mock = Mock()
+		Person person =new Person("dimitris","6995633425")
+		mi = new InsertPersonMenuItem(mock);
+		
+		and: "a simulated user input"
+		def input = new ByteArrayInputStream((System.lineSeparator()).getBytes());
+		Scanner scanner = new Scanner(input)
+		
+		and:
+		PrintStream out=Mock();
+		
+		when:
+		mi.execute(index, scanner, out)
+		
+		then:"the parser is called with approriate input"
+		1*mock.parsePerson(scanner, out)>>person
+		1*index.FindSpecificIndexList(person.getFullName())>>inList
+		1*out.println('The Person has succesfully added!!')
+		
+		and:"The parsed Person lives inside the right indexList"
+		inList.getListLetter()=='d'
+		inList.getList().size()==1
+		inList.getList().first()==person
+			
+		
+	}
 	
-//	def "Save The Created Person To The Right List"(){
-//		given:
-//		Index mock=Mock()
-//		
-//		and:"A scanner that simulates the input"
-//		Scanner scanner=new Scanner(simulateUserInput(name,phone))
-//		
-//		
-//		when:
-//		mi.execute(mock,scanner)
-//	}
+
 
 }
