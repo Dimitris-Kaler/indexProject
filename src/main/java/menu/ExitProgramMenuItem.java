@@ -1,5 +1,6 @@
 package menu;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import IndexProject.Index;
@@ -14,7 +15,7 @@ public class ExitProgramMenuItem extends MenuItem {
 		exit=new Exit();
 	}
 	@Override
-	public void execute(Index index,Scanner scanner) {
+	public void execute(Index index,Scanner scanner,PrintStream out) {
 		System.out.println(message());
 		exit.doIt();
 	}

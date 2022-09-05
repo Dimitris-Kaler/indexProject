@@ -1,5 +1,6 @@
 package menu;
 
+import java.io.PrintStream;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class DeletePersonMenuItem extends MenuItem {
 	}
 	
 	@Override
-	public void execute(Index index,Scanner scanner) {
+	public void execute(Index index,Scanner scanner,PrintStream out) {
 		String name=findPersonFromName(scanner);
 		IndexList indexli=index.FindSpecificIndexList(name);
 		boolean nameExist=indexli.getList().removeIf(person->person.getFullName().equals(name));

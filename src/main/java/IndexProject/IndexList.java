@@ -32,11 +32,16 @@ public class IndexList {
 	}
 	
     private void validateLetterEmptyValue() {
-    	if("".equals(listLetter)){
+    	String lLetter=Character.toString(listLetter);
+    	if("".equals(lLetter)){
     		throw new EmptyLetterIndexListNotAllowedException();
     	}
 		
 	}
+    
+    public void addPerson(Person person) {
+    	getList().add(person);
+    }
 	
 	 
 

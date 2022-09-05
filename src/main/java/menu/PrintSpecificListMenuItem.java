@@ -1,5 +1,6 @@
 package menu;
 
+import java.io.PrintStream;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -8,13 +9,14 @@ import IndexProject.IndexList;
 import IndexProject.Person;
 
 public class PrintSpecificListMenuItem extends MenuItem {
+
 	
 	public PrintSpecificListMenuItem() {
 		super("4","Print Specific List");
 	}
 	
 	@Override 
-	public void execute(Index index,Scanner scanner) {
+	public void execute(Index index,Scanner scanner,PrintStream out) {
 		String letter=FindLetterOfTheLinkedList(scanner);
 
 		IndexList indexlist=index.FindSpecificIndexList(letter);

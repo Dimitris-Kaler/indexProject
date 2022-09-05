@@ -1,5 +1,7 @@
 package IndexProject;
 
+import java.io.PrintStream;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,6 +19,11 @@ public class Person {
 	
 	private String phoneNumber;
 	
+	
+	public Person() {
+		
+	}
+	
 	public Person(String fullName,String phoneNumber) {
 		this.fullName=fullName;
 		this.phoneNumber=phoneNumber;
@@ -26,18 +33,24 @@ public class Person {
 		
 		
 		
-		
-		
-		
 	}
 
 	public String getFullName() {
 		return fullName;
 	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	
 
 
 	public String getPhoneNumber() {
 		return phoneNumber;
+	}
+	
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 
@@ -106,6 +119,29 @@ public class Person {
 		
 
 	}
+	
+	
+//	public Person createPersonToAdd(Scanner scanner,PrintStream out) {
+//		Person person=new Person();
+//		scanner.nextLine();
+//		out.print("Full-Name: ");
+//		String name=scanner.nextLine();
+//		person.setFullName(name);
+//		
+//		
+//		out.print("Mobile-Number: ");
+//		String phone=scanner.nextLine();
+//		person.setPhoneNumber(phone);
+////		Person person=new Person(name,phone);
+//
+//		System.out.println(name);
+//		return person;
+//		
+//		
+//	}
+
+	
+	
 	}
 	
 	

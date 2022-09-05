@@ -1,5 +1,6 @@
 package menu;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import IndexProject.Index;
@@ -11,7 +12,7 @@ public class PrintIndexMenuItem extends MenuItem {
 	}
 	
     @Override
-	public void execute(Index index,Scanner scanner) {
+	public void execute(Index index,Scanner scanner,PrintStream out) {
 		for(int i=0;i<index.getPersonIndex().size();i++) {
 			System.out.println("INDEX: "+index.getPersonIndex().get(i).getListLetter()+" ");
 			System.out.println("Full Name : Mobile Number");

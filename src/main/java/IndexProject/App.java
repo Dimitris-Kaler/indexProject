@@ -1,4 +1,5 @@
 package IndexProject;
+import java.io.PrintStream;
 import java.util.Scanner;
 import exceptions.InvalidMenuChoice;
 import menu.Menu;
@@ -18,7 +19,7 @@ public class App {
 				printMenuOptions();
 				String choice = parseInputFromCommandLine(scanner);
 				MenuItem menuItemSelected=menu.findByCode(choice);
-				menuItemSelected.execute(index,scanner);
+				menuItemSelected.execute(index,scanner,System.out);
 
 			}
 		}

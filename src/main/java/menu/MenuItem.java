@@ -1,5 +1,6 @@
 package menu;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import IndexProject.Index;
@@ -31,16 +32,16 @@ public abstract class MenuItem implements MenuItemCommand {
 	}
 
 
-	public void execute(Index index,Scanner scanner) {
+	public void execute(Index index,Scanner scanner,PrintStream out) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
-	public void execute() {
-		// TODO Auto-generated method stub
-		
-	}
+//	public void execute() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 	
 	
 	

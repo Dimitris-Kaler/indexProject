@@ -19,21 +19,21 @@ class PrintSpecificListMenuItemSpec extends Specification {
 		
 	}
 	
-	def "call FindLetterOfTheLinkedList() and dont give char"(){
-		when:
-		def mi=new PrintSpecificListMenuItem();
-		Scanner scanner=Stub();
-		scanner.nextInt()>>3
-		mi.FindLetterOfTheLinkedList(scanner)
-		
-		
-		then:
-		def e=thrown(NullNameNotAllowedException.class)
-		e.message=="Expected name for person but got null name instead."
-		
-		
-		
-	}
+//	def "call FindLetterOfTheLinkedList() and dont give char"(){
+//		when:
+//		def mi=new PrintSpecificListMenuItem();
+//		Scanner scanner=Stub();
+//		scanner.nextInt()>>3
+//		mi.FindLetterOfTheLinkedList(scanner)
+//		
+//		
+//		then:
+//		def e=thrown(NullNameNotAllowedException.class)
+//		e.message=="Expected name for person but got null name instead."
+//		
+//		
+//		
+//	}
 	def "listHeader"(){
 		when:
 		PrintSpecificListMenuItem mi=new PrintSpecificListMenuItem();
@@ -82,12 +82,12 @@ class PrintSpecificListMenuItemSpec extends Specification {
 def "when execute method then FindSpecificLinkedList is called"(){
 	//TODO THIS TESTING
 	given:
-	PrintSpecificListMenuItem mi=Mock(PrintSpecificListMenuItem)
+	def mi=newPrintSpecificListMenuItem();
 	
 	Index indexMock=Mock(Index)
 	Scanner scanner=new Scanner(System.in)
-	def letter;
-	def list;
+	def letter=mi.FindLetterOfTheLinkedList(scanner)
+	def list=indexMock.FindSpecificIndexList(letter)
 
 	
 	
@@ -97,8 +97,6 @@ def "when execute method then FindSpecificLinkedList is called"(){
 	mi.execute(indexMock,scanner)
 	
 	then:
-	letter==mi.FindLetterOfTheLinkedList(scanner)
-	list==indexMock.FindSpecificIndexList(letter)
 	mi.printList(letter, list)
 	
 	

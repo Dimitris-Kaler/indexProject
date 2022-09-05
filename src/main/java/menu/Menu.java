@@ -28,6 +28,8 @@ public class Menu {
 		for(MenuItem mi:menu) 
 			if(mi.getCode().equals(code)) 
 				return mi;
+		
+		System.out.println(code);
 			
 		throw new InvalidMenuItemCode();
 	}
@@ -37,7 +39,7 @@ public class Menu {
 				"***********************************\n";
 		
 	}
-
+	
 	private String menuOptionsAsString() {
 		return menu.stream()
 			.map(mi -> mi.toString())
