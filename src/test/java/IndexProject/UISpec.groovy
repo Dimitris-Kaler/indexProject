@@ -48,6 +48,7 @@ def "accept input only between 1 and 5"(){
 }
 
 def prompt() {
+	given:
 	OutputStream captureOutput=new ByteArrayOutputStream()
 	PrintStream out=new PrintStream(captureOutput)
 	
@@ -58,6 +59,24 @@ def prompt() {
 	then:
 	captureOutput.toString()=="Enter choice: ${System.lineSeparator()}"
 }
+
+def printMenuOptions() {
+		given:
+		Menu menu = Stub()
+		String options = "option1${System.lineSeparator()}option2"
+		menu.options() >> options
+		ui = new UI(menu)
+
+		OutputStream captureOutput = new ByteArrayOutputStream()
+		PrintStream out = new PrintStream(captureOutput)
+
+		when:
+		ui.printMenuOptions(out)
+
+		then:
+		captureOutput.toString() == options + System.lineSeparator()
+
+	}
 	
 
 }

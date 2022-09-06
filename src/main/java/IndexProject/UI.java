@@ -7,19 +7,25 @@ import menu.Menu;
 import menu.MenuItem;
 
 public class UI {
-	 Menu menu;
-	 Index index;
+	private Menu menu;
+	private Index index;
 	
 	
 	public UI() {
 		menu=new Menu();
 		index=new Index();
 	}
+	
+	public UI(Menu menu) {
+		this.menu=menu;
+	}
+	
+	
 	public void run() {
 		try(Scanner scanner=new Scanner(System.in)){
 			boolean exit=false;
 			while(!exit) {
-				printMenuOptions();
+				printMenuOptions(System.out);
 				String choice = parseInputFromCommandLine(scanner);
 				MenuItem menuItemSelected=menu.findByCode(choice);
 				menuItemSelected.execute(index,scanner,System.out);
@@ -29,10 +35,8 @@ public class UI {
 
 	}
 	
-	private static void printMenuOptions() {
-		System.out.println(new Menu().options());
-
-		
+	private void printMenuOptions(PrintStream out) {
+		out.println(menu.options());		
 	}
 	
 	private static String parseInputFromCommandLine(Scanner sc) {
