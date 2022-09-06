@@ -29,5 +29,17 @@ def "accept input only between 1 and 5"(){
 	where:
 	choice<<("1".."5")
 }
+
+def prompt() {
+	OutputStream captureOutput=new ByteArrayOutputStream()
+	PrintStream out=new PrintStream(captureOutput)
+	
+	when:
+	App.prompt(out)
+	
+	
+	then:
+	captureOutput.toString()=="Enter choice: ${System.lineSeparator()}"
+}
 	
 }
