@@ -8,21 +8,32 @@ class AppSpec extends Specification {
 
 @Unroll
 def "accept input throws exception if not between 1 and 5"(){
+	given:
+	def input=new ByteArrayInputStream((choice+System.lineSeparator()).getBytes())
+	Scanner scanner=new Scanner(input)
+	given:
+
+	
 	when:
-	App.acceptChoice(choice)
+	App.validateChoice(scanner)
 	
 	then:
 	def e=thrown(InvalidMenuChoice)
 	e.message == "Expected value between 1 and 5 but got ${choice} instead."
 	
 	where:
-	choice<<["a","asdfaghaksjcdws","112","0",null]
+	choice<<["a","asdfaghacdws","112","0",null]
 }
 
 @Unroll
 def "accept input only between 1 and 5"(){
+	given:
+	def input = new ByteArrayInputStream((choice + System.lineSeparator() ).getBytes());
+	Scanner scanner = new Scanner(input)
+	
 	when:
-	App.acceptChoice(choice)
+	App.validateChoice(scanner)
+	
 	then:
 	notThrown(InvalidMenuChoice)
 	
