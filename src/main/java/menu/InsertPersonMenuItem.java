@@ -36,6 +36,14 @@ public class InsertPersonMenuItem extends MenuItem {
 		}
 		
 	}
+//	public void execute(Index index,Scanner scanner,PrintStream out) {
+//		scanner.nextLine();
+//		Person person=parser.parsePerson(scanner,out);
+//		IndexList indexli=index.FindSpecificIndexList(person.getFullName());
+//		indexli.addPerson(person);
+//		out.println("The Person has succesfully added!!");
+//		
+//	}
 	
 
 

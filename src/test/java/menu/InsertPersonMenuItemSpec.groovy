@@ -48,9 +48,68 @@ class InsertPersonMenuItemSpec extends Specification {
 		inList.getListLetter()=='d'
 		inList.getList().size()==1
 		inList.getList().first()==person
+		
 			
 		
 	}
+	def"when executing parsing fails"(){
+		given:"Index"
+		Index index=new Index();
+
+	
+		
+		and: "a simulated user input"
+		def input = new ByteArrayInputStream((System.lineSeparator()).getBytes());
+		Scanner scanner = new Scanner(input)
+		
+		and:
+		PrintStream out=Mock();
+		
+		and:"parsing fails"
+		PersonCLIParser badStub=Stub(PersonCLIParser)
+		badStub.parsePerson(scanner,out)>> { throw new RuntimeException("fail") }
+		mi = new InsertPersonMenuItem(badStub);
+		
+		
+		when:
+		mi.execute(index, scanner, out)
+		
+		
+		then:
+		1*out.println("fail")
+		
+		
+	}
+	
+	def"when executing parsing fails and an exception with no message is thrown"(){
+		
+		given:
+		Index index=new Index()
+		
+		and: "a simulated user input"
+		def input = new ByteArrayInputStream((System.lineSeparator()).getBytes());
+		Scanner scanner = new Scanner(input)
+		
+		and:
+		PrintStream out=Mock();
+		
+		and:"parsing fails"
+		PersonCLIParser badStub=Stub(PersonCLIParser)
+		badStub.parsePerson(scanner,out)>> { throw new RuntimeException() }
+		mi = new InsertPersonMenuItem(badStub);
+		
+		
+		when:
+		mi.execute(index, scanner, out)
+		
+		
+		then:
+		1*out.println("Unexpected Error: class java.lang.RuntimeException")
+		
+		
+		
+	}
+	
 	
 
 

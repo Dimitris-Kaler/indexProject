@@ -30,9 +30,10 @@ def"when execute method is called then a call to the method tha exits is made"()
 	mi.exit=mock;
 	Scanner scanner = new Scanner(System.in)
 	Index index=new Index()
+	PrintStream out=Mock()
 	
 	when:
-	mi.execute(index,scanner)
+	mi.execute(index,scanner,out)
 	
 	then:
 	1* mock.doIt()
